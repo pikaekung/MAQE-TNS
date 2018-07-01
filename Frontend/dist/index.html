@@ -1,0 +1,181 @@
+<!doctype html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Handlebars</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+
+    <!-- Styles -->
+    <style>
+        html, body {
+            background-color: #fff;
+            color: #636b6f;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 100;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .full-height {
+            height: 100vh;
+        }
+
+        .flex-center {
+            /* align-items: center; */
+            display: flex;
+            /* justify-content: center; */
+        }
+
+        .position-ref {
+            position: relative;
+        }
+
+        .top-right {
+            position: absolute;
+            right: 10px;
+            top: 18px;
+        }
+
+        .content {
+            /* text-align: center; */
+            margin: 50px;
+        }
+
+        .title {
+            font-size: 34px;
+        }
+
+        .links > a {
+            color: #636b6f;
+            padding: 0 25px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        
+        .post-box {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            
+            -webkit-box-shadow: 0px 5px 3px 0px #ccc;
+            -moz-box-shadow: 0px 5px 3px 0px #ccc;
+            box-shadow: 0px 5px 3px 0px #ccc;
+        }
+
+        .post-box.odd {
+            background-color: #eee;
+        }
+
+        .post-box .image {                
+            /* flex-grow: 1; */
+        }
+
+        .post-box .story-image {
+            width: 80px;
+            height: 150px;
+        }
+
+        .post-box .body {
+            border-right: 1px solid #ccc;
+            padding: 0 15px;
+            flex-grow: 1;
+            max-width: 700px;
+        }
+
+        .post-box .body h3 {
+            margin-top: 0;
+        }
+        
+        .post-box .author {
+            justify-content: flex-end;
+            text-align: center;
+            padding: 0 30px;
+            width: 150px;
+        }
+
+        .post-box .author-img {
+            border-radius: 50%;
+            width: 100px;
+        }
+
+        .post-box .author-name {
+            color: red;
+            font-weight: bold;
+        }
+
+        .paging {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin: 30px 0;
+            list-style-type: none;
+        }
+
+        .paging li {
+            margin: 0 5px;
+            padding: 5px 10px;
+        }
+
+        .paging li.active {
+            background-color: red;
+            border-radius: 50%;                
+        }
+        
+        .paging li.active a {
+            color: #fff;
+        }
+
+        .paging a {
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="flex-center position-ref full-height">
+        <div class="content">
+            <div class="title m-b-md">
+                MAQE Forums<br>
+                Subtitle<br>
+                Posts
+            </div>    
+            <section class="posts">      
+            </section>
+            <ul class="paging">                            
+            </ul>            
+        </div>
+    </div>
+    
+    <script id="post-template" type="text/x-handlebars-template">
+      {{#each this}}            
+        <div class="post-box {{checkOddRow @index}}">
+          <div class="image">
+              <img src="{{ image_url }}" alt="{{ title }}">
+          </div>
+          <div class="body">
+              <h3>{{ title }}</h3>
+              <p>{{ body }}</p>
+              <p>{{ created_at }}</p>
+          </div>
+          {{author author_id}}          
+      </div>
+      {{/each}}
+    </script>
+
+    <script id="paging-template" type="text/x-handlebars-template">
+      <li><a href="#">Previous</a></li>
+        {{> paging-number}}
+        <li><a href="#">Next</a></li>
+    </script>
+
+    <script src="main.js"></script>
+  </body>
+</html>
