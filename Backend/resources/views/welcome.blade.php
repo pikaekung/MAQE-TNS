@@ -194,7 +194,7 @@
                         @endif                        
                     @endfor
                     <li><a href="#">Next</a></li>                    
-                </div>
+                </ul>
             </div>            
         </div>
     </body>
