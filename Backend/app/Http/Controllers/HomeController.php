@@ -24,8 +24,9 @@ class HomeController extends Controller
     public function index()
     {
         //
-        $json_posts_url = env('JSON_POST_URL');
-        $json_authors_url = env('JSON_AUTHORS');
+        $json_posts_url = env('JSON_POSTS_URL');
+        $json_authors_url = env('JSON_AUTHORS_URL');
+        
         $posts_array = json_decode(file_get_contents($json_posts_url), true);     
         $authors_array = json_decode(file_get_contents($json_authors_url), true); 
         
